@@ -1,17 +1,24 @@
-var list1 = document.getElementById('cours');
-var list2 = document.getElementById('presta');
+// prix des prestations
+const prices = {
+	cours_col_beginner_1 : 100,
+	cours_col_beginner_2 : 150
+}
 
-function priceLoader() {
-    // On affiche le contenu de l'élément <option> ciblé par la propriété selectedIndex
-    price = 0;
-    for (var i=1; i<3; i++) {
-    	myList = "list" + i
-    	console.log(myList)
-    	console.log(myList.options[myList.selectedIndex].value);	
-    	price += myList.options[myList.selectedIndex].value;
-		}
-};
+var selected = null;
 
-list1.addEventListener('change', priceLoader);
-priceLoader();
-console.log(price1);
+const list1 = document.getElementById('cours');
+list1.addEventListener('change', handleChange);
+//var list2 = document.getElementById('presta');
+
+function handleChange() {
+	selected = list1.options[list1.selectedIndex].value;
+	logPrice();
+}
+
+function logPrice() {
+	if (selected in prices) {
+		console.log(prices[selected]);
+	} else {
+		console.log(0);
+	}
+}
