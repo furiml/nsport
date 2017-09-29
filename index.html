@@ -2,27 +2,23 @@
 <body>
 
 <select id="cours">
-    <option value="">Sélectionnez votre cours collectif</option>
+    <option value="default">Sélectionnez votre cours collectif</option>
     <option value=cours_col_beginner_1>Cours Collectif débutant 1h</option>
     <option value=cours_col_beginner_2>Cours Collectif débutant 2h</option>
 </select>
 <br />
 <br />
 <select id="presta">
-	<option value="">Sélectoinnez votre prestation</option>
+	<option value="default">Sélectionnez votre prestation</option>
 	<option value="presta1">Prestation 1</option>
 	<option value="presta2">Prestation 2</option>
 </select>
-<!--<input id="calc" type="submit" value="Calculer" />-->
 <br />
 <br />
 <div>
-	<p style="display: inline"> prix total : <span id="prix"></span></p>
+	<p style="display: inline"> prix total : <span id="prix">0€</span></p>
 </div>
 <script src=script.js>
 </script>
-
-
-
 </body>
 </html>
