@@ -1,17 +1,28 @@
+// liste des listes
+const listes = {
+	cours : 'COURS',
+	presta : 'PRESTA'
+}
+
 // prix des prestations
 const prices = {
 	cours_col_beginner_1 : 100,
-	cours_col_beginner_2 : 150
+	cours_col_beginner_2 : 150,
+	presta1 : 10,
+	presta2 : 20
 }
 
 var selected = null;
 
-const list1 = document.getElementById('cours');
-list1.addEventListener('change', handleChange);
-//var list2 = document.getElementById('presta');
+for (let liste in listes) {
+	//console.log(i);
+	//console.log(listes[i]);
+	const dropdown = document.getElementById(liste);
+	dropdown.addEventListener('change', handleChange);
+}
 
 function handleChange() {
-	selected = list1.options[list1.selectedIndex].value;
+	selected = this.options[this.selectedIndex].value;
 	logPrice();
 }
 
