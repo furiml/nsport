@@ -1,8 +1,9 @@
 // liste des listes
 const listes = {
-	cours : 'COURS',
-	presta : 'PRESTA',
+	cours : 'cours',
+	presta : 'presta',
 	goodies : 'goodies',
+    extra : 'extra',
 }
 
 // prix des prestations
@@ -15,6 +16,11 @@ const prices = {
 	goodie1 : 20,
 	goodie2 : 5,
 	goodie3 : 35,
+    extra1 : 10,
+    extra2 : 3,
+    extra3 : 20,
+    extra4 : 35,
+    extra5 : 60,
 }
 
 // initiation du sélecteur
