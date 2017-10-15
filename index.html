@@ -1,51 +1,195 @@
-<html>
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>furiml/nsport</title>
-</head>
-<body>
-<div class="bg"><span class="text"><h1>furiml/nsport</h1>
-	<br />
-	2017</span>
-</div>
-<div class="main">
-	<select id="cours">
- 	  	<option value="default">Sélectionnez votre cours collectif</option>
- 	   	<option value=cours_col_beginner_1>Cours Collectif débutant 1h</option>
-	    <option value=cours_col_beginner_2>Cours Collectif débutant 2h</option>
-	</select>
-	<br />
-	<br />
-	<select id="presta">
-		<option value="default">Sélectionnez votre prestation</option>
-		<option value="presta1">Séance découverte</option>
-		<option value="presta2">Séance perfectionnement</option>
-	</select>
-	<br />
-	<br />
-	<select id="goodies">
-		<option value="default">Sélectionnez un goodie</option>
-		<option value="goodie1">Serviette du club</option>
-		<option value="goodie2">Porte-clé</option>
-		<option value="goodie3">Sweat</option>
-	</select>
-	<br />
-	<br />
-    <select id="extra">
-        <option value="default">Sélectionnez un extra</option>
-        <option value="extra1">Broderie pull</option>
-        <option value="extra2">Autocollant</option>
-        <option value="extra3">Carnet 5 repas</option>
-        <option value="extra4">Carnet 10 repas</option>
-        <option value="extra5">Carnet 20 repas</option>
-    </select>
-    <br />
-    <br />
-	<div class="prixdisplay">
-	<p style="display: inline"> prix total : <span id="prix">0€</span></p>
-</div>
-</div>
-<script src=script.js></script>	
-</body>
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Sport">
+		<meta name="author" content="Adrien Scrève">
+		<link rel="icon" href="img/favicon.ico">
+
+		<title>furiml/nsport</title>
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+
+		<!-- Custom styles for this template -->
+		<link href="css/album.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="collapse bg-dark" id="navbarHeader">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 py-4">
+						<h4 class="text-white">A propos</h4>
+						<p class="text-muted">Proof of concept d'un calculateur de prix.</p>
+					</div>
+					<div class="col-sm-4 py-4">
+						<h4 class="text-white">Contact</h4>
+						<ul class="list-unstyled">
+							<li><a href="#" class="text-white">Twitter</a></li>
+							<li><a href="#" class="text-white">Facebook</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar navbar-dark bg-dark">
+			<div class="container d-flex justify-content-between">
+				<a href="#" class="navbar-brand">furiml/nsport</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</div>
+
+		<section class="jumbotron text-center">
+			<div class="container">
+				<h1 class="jumbotron-heading">furiml/nsport
+					<small class="text-muted">2017</small></h1>
+			</div>
+		</section>
+
+		<div class="album text-muted">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<h2>Étape 1 - Choisissez votre cours collectif</h2>
+						<div class="row">
+							<button type="button" id="item-1" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Cours collectif d'une heure</button>
+							<button type="button" id="item-2" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Cours collectif de deux heures</button>
+						</div>
+						<h2>Étape 2 - Choisissez votre prestation</h2>
+						<div class="row">
+							<button type="button" id="item-3" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Séance découverte</button>
+							<button type="button" id="item-4" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Séance perfectionnement</button>
+						</div>
+						<h2>Étape 3 - Choisissez votre goodie</h2>
+						<div class="row">
+							<button type="button" id="item-5" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Serviette du club</button>
+							<button type="button" id="item-6" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Porte-clef</button>
+							<button type="button" id="item-7" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Sweat</button>
+						</div>
+						<h2>Étape 4 - Choisissez votre extra</h2>
+						<div class="row">
+							<button type="button" id="item-8" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Broderie pull</button>
+							<button type="button" id="item-9" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Autocollant</button>
+							<button type="button" id="item-10" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Carte 5 repas</button>
+							<button type="button" id="item-11" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Carte 10 repas</button>
+							<button type="button" id="item-12" onclick="ajouterPrestation(event)" class="btn btn-info btn-lg btn-block">Carte 20 repas</button>
+						</div>
+						<h2>Test graphique pour éléments uniques</h2>
+						<p class="small">Ce bloc n'ajoute pas d'élément à la liste de choix</p>
+						<div class="row">
+							<div class="btn-group-vertical btn-block " data-toggle="buttons">
+							    <label class="btn btn-info btn-lg btn-block">
+							    	<input type="radio" name="options" id="radio1" autocomplete="off" checked>Il n'est possible</label>
+							 	<label class="btn btn-info btn-lg btn-block">
+							   		<input type="radio" name="options" id="radio2" autocomplete="off">de sélectionner qu'un seul</label>
+							  	<label class="btn btn-info btn-lg btn-block">
+							   		<input type="radio" name="options" id="radio3" autocomplete="off">élément de cette liste</label>
+							</div>
+						</div>
+						<h2>Test graphique pour éléments multiples</h2>
+						<p class="small">Ce bloc n'ajoute pas d'élément à la liste de choix</p>
+						<div class="row">
+							<button type="button" id="item-1" class="btn btn-info btn-lg btn-block">L'utilisateur peut ici</button>
+							<button type="button" id="item-2"  class="btn btn-info btn-lg btn-block">Sélectionner plusieurs éléments</button>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="collant">
+							<h2>Vos choix</h2><p></p>
+							<ul class="list-group">
+								<div id="commande"></div>
+								<li class="list-group-item list-group-item-info">Total<span id="total" class="float-right">0 €</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="text-muted">
+			<div class="container">
+				<p class="float-right">
+					<a href="#">Back to top</a>
+				</p>
+				<p>Un proof of concept développé avec <a href="https://getbootstrap.com/">Bootstrap</a></p>
+			</div>
+		</footer>
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script>
+			$(function () {
+				Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
+			});
+		</script>
+		
+		<script>
+			var items = [];
+			// label, prix
+			var prix = {
+				"item-1":10,
+				"item-2":17,
+				"item-3":7,
+				"item-4":9,
+				"item-5":7,
+				"item-6":1,
+				"item-7":33,
+				"item-8":10,
+				"item-9":0.5,
+				"item-10":15,
+				"item-11":25,
+				"item-12":45
+			};
+			
+			var labelTotal = document.getElementById("total");
+			var listeCommande = document.getElementById("commande");
+			
+			function afficherItems(){
+				var total = 0;
+				listeCommande.innerHTML = "";
+				for(var i =0, il = items.length;i<il;i++){
+					var item = items[i];
+					listeCommande.innerHTML += '<li class="list-group-item"><span class="fa fa-minus-circle text-danger" onclick="supprimerPrestation(' + i + ')"></span>&nbsp;&nbsp;&nbsp;' + item["label"] + '<span class="float-right">' + item["prix"] +' € </span></li>';
+					total += item["prix"];
+				}
+				labelTotal.innerHTML = total + " €";
+			}
+			
+			function ajouterPrestation(e){
+				var target = e.target;
+				var label = target.innerHTML;
+				var prixItem = prix[target.id];
+				items.push({"label":label, "prix":prixItem});
+				afficherItems();
+			}
+			
+			function ajouterPrestationRadio(e){
+				var target = e.target;
+				var label = target.innerHTML;
+				var prixItem = prix[target.id];
+				if("radio" in listeCommande) {
+					console.log('hey i worked');
+				}
+				else{
+					console.log('I didn\'t work');
+				}
+			}
+			function supprimerPrestation(no){
+				items.splice(no, 1);
+				afficherItems();
+			}
+		</script>
+	</body>
 </html>
+<!--<li class="list-group-item">Sweat<span class="float-right">33 €</span></li>-->
