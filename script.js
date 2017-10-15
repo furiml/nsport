@@ -28,7 +28,7 @@ var selected = null;
 
 // création des listeners
 for (let liste in listes) {
-	const dropdown = document.getElementById(liste);
+	const dropdown = document.getElementById(dropdownMenu1);
 	dropdown.addEventListener('change', handleChange);
 }
 
